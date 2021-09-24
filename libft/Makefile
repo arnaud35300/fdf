@@ -6,7 +6,7 @@
 #    By: arguilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/26 21:39:55 by arguilla          #+#    #+#              #
-#    Updated: 2021/08/25 03:45:50 by arguilla         ###   ########.fr        #
+#    Updated: 2021/09/24 20:24:45 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS 		= ft_strlen.c\
 	  		  ft_calloc.c\
 	  		  ft_strchr.c\
 	  		  ft_strrchr.c\
+			  ft_strrstr.c\
 	  		  ft_strdup.c\
 	  		  ft_strncmp.c\
 	  		  ft_strlcat.c\

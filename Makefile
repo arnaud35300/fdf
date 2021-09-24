@@ -14,6 +14,9 @@ PROG_INC		=
 # [ SRCS ]
 
 SRCS		=	main.c\
+				error.c\
+				parser.c\
+				free.c\
 
 # [ OBJECTS ] #
 

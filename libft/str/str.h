@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 00:04:47 by arguilla          #+#    #+#             */
-/*   Updated: 2021/08/23 00:35:35 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/09/24 20:26:17 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
+int		ft_strrstr(char *str, char *suffix);
 
 #endif

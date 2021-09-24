@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/24 19:43:23 by arguilla          #+#    #+#             */
-/*   Updated: 2021/09/25 01:24:55 by arguilla         ###   ########.fr       */
+/*   Created: 2021/09/24 22:55:46 by arguilla          #+#    #+#             */
+/*   Updated: 2021/09/25 01:31:14 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "fdf.h"
 
-# include "libft.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <errno.h>
-# include <fcntl.h>
-
-typedef struct	s_fdf
+int	free_matrix(int **matrix, int xmax, int code)
 {
-	int	**matrix;
-	int	xmax;
-	int	ymax;
-}				t_fdf;
+	int	i;
 
-int	print_error(char *error, int code);
-int	parse_map(t_fdf *f, char *filename);
-int	free_struct(t_fdf *f, int code);
-int	free_matrix(int **matrix, int xmax, int code);
-# endif
+	i = -1;
+	if (!matrix)
+		return (code);
+	while (++i < xmax)
+		free(matrix[i]);
+	free(matrix);
+	return (code);
+}
+
+int	free_struct(t_fdf *f, int code)
+{
+	if (!f)
+		return (code);
+	if (f->matrix)
+		free_matrix(f->matrix, f->xmax, 1);
+	free(f);
+	return (code);
+}

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:43:23 by arguilla          #+#    #+#             */
-/*   Updated: 2021/09/25 01:24:55 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/09/25 03:23:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include "libft.h"
+# include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <errno.h>

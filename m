@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    m                                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 05:23:48 by arguilla          #+#    #+#              #
-#    Updated: 2021/09/25 06:01:04 by arguilla         ###   ########.fr        #
+#    Updated: 2021/09/25 05:50:49 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,50 +37,44 @@ INC				=
 
 # [ SOURCES ]
 
-SRC				=	main.c\
+SRCS				=	main.c\
 					error.c\
 					parser.c\
 					free.c\
 
 # [ OBJECTS ] #
 
-O				=	obj/
-OBJ				=	$(SRC:%=$O%.o)
+OBJ			=	./objs
+OBJS		=	$(addprefix $(OBJ)/, $(SRCS:.c=.o))
 
 # [ PATH ] #
 
-VPATH			=	includes:srcs:libft:mlx_linux
+VPATH		=	includes:srcs:libft:mlx_linux:
 
 # [ RULES ] #
 
-all:			$(NAME)
+all:		$(NAME)
 
-$(NAME):		$(OBJ)
-				@$(MAKE) -s -C $(LIBFT)
-				@$(MAKE) -s -C  $(MINILIBX) all
-				@printf "%-55b %b" "$(_GREEN)Library $(MINILIBX) created.$(_END)" "[ $(_BOLDGREEN)OK$(_END) ]\n"
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -I./includes $(LIBFT_INC) $(PROG_INC) $(LIBFT)/libft.a $(MINILIBX_INC)
-				@printf "%-55b %b" "$(_GREEN)Binary file $(NAME) created.$(_END)" "[ $(_BOLDGREEN)OK$(_END) ]\n"
+$(NAME):	$(OBJS)
+			$(MAKE) -s -C $(LIBFT)
+			$(MAKE) -C  $(MINILIBX) all
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I./includes $(LIBFT_INC) $(PROG_INC) $(LIBFT)/libft.a $(MINILIBX_INC)
 
-$O:
-				@mkdir -p $@
+$(OBJ):
+			mkdir -p $(OBJ)
 
+$(OBJS):	| $(OBJ)
 
-$O%.o: %		| $O
-				@$(CC) $(CFLAGS) -c $< -o $@ -I./includes $(LIBFT_INC) $(PROG_INC) -I./mlx_linux
-				@printf "%-55b %b" "Compiling $(_YELLOW) $@ $(_END)" "[ $(_GREEN)OK$(_END) ]\n"
+$(OBJ)/%.o: %.c
+			$(CC) $(CFLAGS) -c $< -o $@ -I./includes $(LIBFT_INC) $(PROG_INC) -I./mlx_linux
 clean:
-				@$(MAKE) clean -s -C $(LIBFT)
-				@$(MAKE) clean -s -C $(MINILIBX)
-				@$(RM) $(OBJ)
-				@$(RM) $O
-				@printf "%-55b %b" "$(_RED)Delete$(_END) $O" "[ $(_GREEN)OK$(_END) ]\n"
+			$(RM) $(OBJ)
+			$(MAKE) clean -C $(LIBFT)
+			$(MAKE) -C $(MINILIBX) clean
 
 fclean:		clean
-
-			@$(MAKE) fclean -s -C $(LIBFT)
-			@$(RM) $(NAME)
-			@printf "%-55b %b" "$(_RED)Delete$(_END) $(NAME)" "[ $(_GREEN)OK$(_END) ]\n"
+			@$(RM) $(NAME) 2>/dev/null
+			@$(MAKE) fclean -C $(LIBFT)
 
 re:			fclean all
 

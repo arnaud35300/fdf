@@ -6,25 +6,23 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:44:42 by arguilla          #+#    #+#             */
-/*   Updated: 2021/10/08 17:27:03 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:08:41 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	count_numbers(int *xmax, char *line)
+static void	count_numbers(int *ymax, char *line)
 {
 	char	*endptr;
 	int		err;
 
-	*xmax = 0;
+	*ymax = 0;
 	while (line && *line)
 	{
 		ft_strtol(line, &endptr, 10, &err);
 		line = endptr;
-		while (ft_isspace(*line))
-			line++;
-		(*xmax)++;
+		(*ymax)++;
 	}
 }
 
@@ -39,8 +37,6 @@ static void	get_numbers(t_fdf *f, int *i, char *line)
 	{
 		f->matrix[*i][++j] = ft_strtol(line, &endptr, 10, &err);
 		line = endptr;
-		while (ft_isspace(*line))
-			line++;
 	}
 }
 
@@ -51,9 +47,9 @@ static int	get_matrix_size(int *xmax, int *ymax, int fd)
 	line = NULL;
 	while (get_next_line(fd, &line))
 	{
-		count_numbers(xmax, line);
+		count_numbers(ymax, line);
 		free(line);
-		(*ymax)++;
+		(*xmax)++;
 	}
 	if (line)
 		free(line);
@@ -66,13 +62,13 @@ static int	init_matrix(t_fdf *f, int fd)
 	int		i;
 
 	i = -1;
-	f->matrix = malloc(sizeof(int *) * f->ymax);
+	f->matrix = malloc(sizeof(int *) * f->xmax);
 	if (!f->matrix)
 		return (0);
 	line = NULL;
 	while (get_next_line(fd, &line))
 	{
-		f->matrix[++i] = malloc(sizeof(int) * f->xmax);
+		f->matrix[++i] = malloc(sizeof(int) * f->ymax);
 		if (!f->matrix[i])
 		{
 			free(line);

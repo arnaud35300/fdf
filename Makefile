@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 05:23:48 by arguilla          #+#    #+#              #
-#    Updated: 2021/09/27 19:18:29 by arguilla         ###   ########.fr        #
+#    Updated: 2021/10/08 16:38:40 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC				=	main.c\
 					error.c\
 					parser.c\
 					free.c\
+					struct.c\
 
 # [ OBJECTS ] #
 

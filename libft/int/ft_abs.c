@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int.h                                              :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 00:04:47 by arguilla          #+#    #+#             */
-/*   Updated: 2021/10/09 01:40:24 by arguilla         ###   ########.fr       */
+/*   Created: 2021/10/09 01:38:57 by arguilla          #+#    #+#             */
+/*   Updated: 2021/10/09 01:40:08 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INT_H
-# define INT_H
+#include "libft.h"
 
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-int		ft_strtol(const char *nptr, char **endptr, int base, int *err);
-int		ft_abs(int i);
-
-#endif
+int	ft_abs(int i)
+{
+	if (i < 0)
+		return (-i);
+	return (i);
+}

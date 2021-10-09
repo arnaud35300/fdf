@@ -6,13 +6,13 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 22:55:46 by arguilla          #+#    #+#             */
-/*   Updated: 2021/10/08 16:50:21 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/10/09 01:25:37 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	free_matrix(int **matrix, int ymax, int code)
+int	free_matrix(t_dot **matrix, int ymax, int code)
 {
 	int	i;
 

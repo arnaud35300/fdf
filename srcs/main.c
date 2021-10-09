@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:36:33 by arguilla          #+#    #+#             */
-/*   Updated: 2021/10/09 01:18:08 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/10/09 03:39:27 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,60 +39,32 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	print_line(t_mlx *mlx, int dot1[], int dot2[])
-
 void	fdf(t_fdf *f)
 {
-	int x1 = 200, y1 = 40;
-	int	x2 = 150, y2 = 300;
+	int	x;
+	int	y;
 
-	
-	int	ex = abs(x2 - x1);
-	int	ey = abs(y2 - y1);
-	int dx = 2 * ex;
-	int	dy = 2 * ey;
-	int Dx = ex;
-	int Dy = ey;
-	int i = 0;
-	int Xincr = 1;
-	int Yincr = 1;
-	if (x1 > x2)
-		Xincr = -1;
-	if (y1 > y2)
-		Yincr = -1;
-	if (Dx > Dy)
+	y = -1;
+
+# define SPACE 40
+# define X_START 50
+# define Y_START 50
+	while (++y < f->ymax)
 	{
-		while(i <= Dx)
+		x = -1;
+		while (++x < f->xmax)
 		{
-			mlx_pixel_put(f->m->mlx, f->m->win, x1, y1, WHITE);
-			i++;
-			x1+=Xincr;
-			ex -= dy;
-			if (ex < 0)
-			{
-				y1 += Yincr;
-				ex += dx;
-			}
+			/*if (x < f->xmax - 1)
+				mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z}, (t_dot){f->matrix[y][x + 1].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z});
+			if (y < f->ymax -1)
+				mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z}, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y + 1][x].y * SPACE + Y_START, f->matrix[y][x].z});
+			*/
+			mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z}, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START + 40, f->matrix[y][x].z});
+			mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z}, (t_dot){f->matrix[y][x].x * SPACE + X_START + 40, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z});
+			mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START + 40, f->matrix[y][x].y * SPACE + Y_START + 40, f->matrix[y][x].z}, (t_dot){f->matrix[y][x].x * SPACE + X_START + 40, f->matrix[y][x].y * SPACE + Y_START, f->matrix[y][x].z});
+			mlx_print_line(f->m, (t_dot){f->matrix[y][x].x * SPACE + X_START, f->matrix[y][x].y * SPACE + Y_START + 40, f->matrix[y][x].z}, (t_dot){f->matrix[y][x].x * SPACE + X_START + 40, f->matrix[y][x].y * SPACE + Y_START + 40, f->matrix[y][x].z});	
 		}
 	}
-	
-	if (Dx < Dy)
-	{
-		while(i <= Dy)
-		{
-			mlx_pixel_put(f->m->mlx, f->m->win, x1, y1, WHITE);
-			i++;
-			y1+=Yincr;
-			ey -= dx;
-			if (ey < 0)
-			{
-				x1 += Xincr;
-				ey += dy;
-			}
-		}
-	}
-
-
 }
 
 int	main(int ac, char **av)
@@ -104,15 +76,19 @@ int	main(int ac, char **av)
 		|| !init_mlx_struct(&(f->m)))
 		return (free_struct(f, print_error("Usage: ./fdf 42.fdf\n", 1)));
 
-	int x = -1,  y = -1;
+	/*int x = -1,  y = -1;
 	while (++y < f->ymax)
 	{
 		x = -1;
 		while (++x < f->xmax)
-			printf("%d ", f->matrix[y][x]);
+		{
+			printf("y: %d ", f->matrix[y][x].y);
+			printf("x: %d ", f->matrix[y][x].x);
+			printf("z: %d | ", f->matrix[y][x].z);
+		}
 		printf("\n");
 	}
-
+*/
 	fdf(f);
 	mlx_key_hook(f->m->win, &exit_window, f);
 	mlx_loop(f->m->mlx);

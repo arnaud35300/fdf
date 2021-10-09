@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 05:23:48 by arguilla          #+#    #+#              #
-#    Updated: 2021/10/08 16:38:40 by arguilla         ###   ########.fr        #
+#    Updated: 2021/10/09 02:44:04 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC				=	main.c\
 					parser.c\
 					free.c\
 					struct.c\
+					mlx_print_line.c\
 
 # [ OBJECTS ] #
 

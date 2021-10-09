@@ -6,7 +6,7 @@
 #    By: arguilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/26 21:39:55 by arguilla          #+#    #+#              #
-#    Updated: 2021/09/25 05:28:27 by arguilla         ###   ########.fr        #
+#    Updated: 2021/10/09 01:40:41 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC				=	ft_strlen.c\
 	  		  		ft_isascii.c\
 	  		  		ft_atoi.c\
 			  		ft_strtol.c\
+					ft_abs.c\
 	  		  		ft_bzero.c\
 	  		  		ft_calloc.c\
 	  		  		ft_strchr.c\

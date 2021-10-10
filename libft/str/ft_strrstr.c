@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:19:56 by arguilla          #+#    #+#             */
-/*   Updated: 2021/09/24 20:40:02 by arguilla         ###   ########.fr       */
+/*   Updated: 2021/10/10 05:50:21 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strrstr(char *str, char *suffix)
 	suffix_len = ft_strlen(suffix);
 	if (suffix_len > str_len)
 		return (0);
-	return (ft_strncmp(str + str_len - suffix_len, suffix, suffix_len)  == 0);
+	return (ft_strncmp(str + str_len - suffix_len, suffix, suffix_len) == 0);
 }

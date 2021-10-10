@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 05:23:48 by arguilla          #+#    #+#              #
-#    Updated: 2021/10/09 02:44:04 by arguilla         ###   ########.fr        #
+#    Updated: 2021/10/10 05:42:20 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ SRC				=	main.c\
 					free.c\
 					struct.c\
 					mlx_print_line.c\
+					color.c\
+					fdf.c\
+					window.c\
 
 # [ OBJECTS ] #
 

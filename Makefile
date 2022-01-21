@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 05:23:48 by arguilla          #+#    #+#              #
-#    Updated: 2021/10/10 05:42:20 by arguilla         ###   ########.fr        #
+#    Updated: 2022/01/21 18:03:30 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ _BOLDGREEN  	=	\033[1m\033[32m
 # [ COMPILATION VARIABLES ] #
 
 CC				=	gcc
-CFLAGS			=	-g -Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 LIBFT_INC		=	-I./libft -I./libft/char -I./libft/file -I./libft/int -I./libft/lst -I./libft/mem -I./libft/print -I./libft/str
 MINILIBX_INC	=	-I./mlx_linux -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm
 INC				=
